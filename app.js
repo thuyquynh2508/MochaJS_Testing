@@ -1,7 +1,7 @@
-var weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-var weekends = ['Saturday', 'Sunday']
 module.exports = {
     checkWeekDay: function(day) {
+        var weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+        var weekends = ['Saturday', 'Sunday']
         if(weekdays.includes(day) == true) {
             return 'weekday';
         } else if (weekends.includes(day) == true) {
@@ -39,8 +39,9 @@ module.exports = {
             } else {
                 return 'Giá vé 40.000 đồng';
             }
-        }
-        return 'Input không hợp lệ';
+        } else {
+            return 'Input không hợp lệ';
+        } 
     },
     returnPrice: function(day, age) {
         if (this.checkWeekDay(day) == 'weekday') {
@@ -52,9 +53,9 @@ module.exports = {
     },
     returnResult: function(expected, actual) {
         if (actual == expected) {
-            return 'Pass';
+            return 'Passed';
         } else {
-            return 'Fail';
+            return 'Failed';
         }
     }
 }
