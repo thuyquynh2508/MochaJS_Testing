@@ -1,14 +1,16 @@
-module.exports = {
+var weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+var weekends = ['Saturday', 'Sunday']
+module.exports = {    
     checkWeekDay: function(day) {
-        var weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-        var weekends = ['Saturday', 'Sunday']
+        let typeDay = '';
         if(weekdays.includes(day) == true) {
-            return 'weekday';
+            typeDay = 'weekday';
         } else if (weekends.includes(day) == true) {
-            return 'weekend';
+            typeDay = 'weekend';
         } else {
-            return 'Input không hợp lệ';
+            typeDay = 'Input không hợp lệ';
         }
+        return typeDay;
     },
     checkAge: function(age) {
         if (age < 3 || age > 80 || Number.isInteger(age) == false) {
@@ -44,12 +46,15 @@ module.exports = {
         } 
     },
     returnPrice: function(day, age) {
+        let price = '';
         if (this.checkWeekDay(day) == 'weekday') {
-            return this.returnPriceWeekday(age);
+            price = this.returnPriceWeekday(age);
         } else if (this.checkWeekDay(day) == 'weekend') {
-            return this.returnPriceWeekend(age);
-        } 
-        return 'Input không hợp lệ';
+            price = this.returnPriceWeekend(age);
+        } else {
+            price = 'Input không hợp lệ';
+        }
+        return price;
     },
     returnResult: function(expected, actual) {
         if (actual == expected) {

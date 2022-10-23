@@ -35,7 +35,7 @@ describe('Các ca kiểm thử theo phương pháp kiểm thử dòng điều kh
             dataTest.actual = app.checkWeekDay(`${dataTest.input}`); 
             assert.equal(dataTest.actual, `${dataTest.expected}`);
             dataTest.result = app.returnResult(dataTest.expected, dataTest.actual);
-            console.log(dataTest);  
+            // console.log(dataTest);  
         })
     }  
 })
@@ -45,6 +45,30 @@ describe('Các ca kiểm thử theo phương pháp kiểm thử dòng điều kh
     for (const dataTest of dataArrDDKH2) {
         it(`Test ${dataTest.id}`, function() {
             dataTest.actual = app.returnPriceWeekend(Number(`${dataTest.input}`)); 
+            assert.equal(dataTest.actual, `${dataTest.expected}`);
+            dataTest.result = app.returnResult(dataTest.expected, dataTest.actual);
+            // console.log(dataTest);  
+        })
+    }  
+})
+
+describe('Các ca kiểm thử theo phương pháp kiểm thử dòng dữ liệu - Hàm kiểm tra ngày đầu vào', function() {
+    var dataArrDDLH1 = data.getDataDDLH1();
+    for (const dataTest of dataArrDDLH1) {
+        it(`Test ${dataTest.id}`, function() {
+            dataTest.actual = app.checkWeekDay(`${dataTest.input}`); 
+            assert.equal(dataTest.actual, `${dataTest.expected}`);
+            dataTest.result = app.returnResult(dataTest.expected, dataTest.actual);
+            console.log(dataTest);  
+        })
+    }  
+})
+
+describe('Các ca kiểm thử theo phương pháp kiểm thử dòng dữ liệu - Hàm trả về giá vé', function() {
+    var dataArrDDLH2 = data.getDataDDLH2();
+    for (const dataTest of dataArrDDLH2) {
+        it(`Test ${dataTest.id}`, function() {
+            dataTest.actual = app.returnPrice(`${dataTest.day}`, Number(`${dataTest.age}`)); 
             assert.equal(dataTest.actual, `${dataTest.expected}`);
             dataTest.result = app.returnResult(dataTest.expected, dataTest.actual);
             console.log(dataTest);  
